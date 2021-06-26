@@ -1,5 +1,11 @@
 # Getting Started with Create React App
 
+A simple Trello clone created using React, Typescript
+
+
+
+# Getting Started with Create React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
