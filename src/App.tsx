@@ -1,22 +1,26 @@
-import React from 'react';
-import { AppContainer } from './styles'
-import { Column } from './Column'
-import { Card } from './Card'
 
-function App() {
+import React from "react"
+import { Column } from "./Column"
+import { AppContainer } from "./styles"
+import { useAppState } from "./AppStateContext"
+import { AddNewItem } from './AddNewItem'
+
+
+const App = () => {
+  const {state} = useAppState()
+
+  console.log(state)
   return (
     <AppContainer>
-      <Column text="To Do">
-        <Card text="Develop the search bar,"></Card>
-      </Column>
-      <Column text="In Progress">
-        <Card text="Develop the home page."></Card>
-      </Column>
-      <Column text="Done">
-        <Card text="Design the application."></Card>
-      </Column>
+      {state.lists.map((list, i) => (
+        <Column text={list.text} key={list.id} index={i}/>
+      ))}
+      <AddNewItem
+        toggleButtonText="+ Add another list"
+        onAdd={console.log}
+      />
     </AppContainer>
-  );
+  )
 }
 
-export default App;
+export default App
